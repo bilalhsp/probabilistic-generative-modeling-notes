@@ -1,0 +1,15 @@
+# Flow Matching
+
+## Motivation
+
+Flow matching learns a continuous-time vector field that transports noise to data.
+
+## Key idea
+
+Instead of learning a score, the model learns a velocity field.
+
+## Notes
+
+- Probability paths
+- Conditional flow matching
+- Relation to diffusion models

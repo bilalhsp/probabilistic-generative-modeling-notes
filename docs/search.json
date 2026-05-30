@@ -10,33 +10,124 @@
     ]
   },
   {
-    "objectID": "diffusion.html",
-    "href": "diffusion.html",
-    "title": "3  Diffusion Models",
+    "objectID": "diffusion/score-matching.html",
+    "href": "diffusion/score-matching.html",
+    "title": "3  Score Matching",
     "section": "",
-    "text": "3.1 Core questions\nDiffusion models define a gradual noising process and learn how to reverse it.",
+    "text": "3.1 Motivation\nScore matching learns the score function of a probability distribution.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+      "Diffusion Models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
     ]
   },
   {
-    "objectID": "diffusion.html#core-questions",
-    "href": "diffusion.html#core-questions",
-    "title": "3  Diffusion Models",
-    "section": "",
-    "text": "What distribution are we modeling?\nWhat is the role of the score function?\nHow do SDE and ODE formulations differ?\nHow do diffusion models solve inverse problems?",
+    "objectID": "diffusion/score-matching.html#key-idea",
+    "href": "diffusion/score-matching.html#key-idea",
+    "title": "3  Score Matching",
+    "section": "3.2 Key idea",
+    "text": "3.2 Key idea\nInstead of modeling the density directly, we model its gradient with respect to the data.",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+      "Diffusion Models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
     ]
   },
   {
-    "objectID": "diffusion.html#papers-to-connect",
-    "href": "diffusion.html#papers-to-connect",
-    "title": "3  Diffusion Models",
-    "section": "3.2 Papers to connect",
-    "text": "3.2 Papers to connect\n\nDDPM\nScore-based generative modeling\nEDM\nDAPS\nDiffPIR\nRePS",
+    "objectID": "diffusion/score-matching.html#notes",
+    "href": "diffusion/score-matching.html#notes",
+    "title": "3  Score Matching",
+    "section": "3.3 Notes",
+    "text": "3.3 Notes\n\nScore function\nDenoising score matching\nConnection to diffusion models",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+      "Diffusion Models",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/ddpm.html",
+    "href": "diffusion/ddpm.html",
+    "title": "4  DDPM",
+    "section": "",
+    "text": "4.1 Motivation\nDenoising Diffusion Probabilistic Models generate samples by reversing a gradual noising process.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/ddpm.html#forward-process",
+    "href": "diffusion/ddpm.html#forward-process",
+    "title": "4  DDPM",
+    "section": "4.2 Forward process",
+    "text": "4.2 Forward process\nThe forward process gradually adds Gaussian noise to data.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/ddpm.html#reverse-process",
+    "href": "diffusion/ddpm.html#reverse-process",
+    "title": "4  DDPM",
+    "section": "4.3 Reverse process",
+    "text": "4.3 Reverse process\nThe learned model removes noise step by step.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/edm.html",
+    "href": "diffusion/edm.html",
+    "title": "5  EDM",
+    "section": "",
+    "text": "5.1 Motivation\nEDM provides a clean design space for diffusion model sampling and training.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>EDM</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/edm.html#key-ideas",
+    "href": "diffusion/edm.html#key-ideas",
+    "title": "5  EDM",
+    "section": "5.2 Key ideas",
+    "text": "5.2 Key ideas\n\nNoise parameterization\nPreconditioning\nSampling schedule\nSolver choice",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>EDM</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/flow-matching.html",
+    "href": "diffusion/flow-matching.html",
+    "title": "6  Flow Matching",
+    "section": "",
+    "text": "6.1 Motivation\nFlow matching learns a continuous-time vector field that transports noise to data.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/flow-matching.html#key-idea",
+    "href": "diffusion/flow-matching.html#key-idea",
+    "title": "6  Flow Matching",
+    "section": "6.2 Key idea",
+    "text": "6.2 Key idea\nInstead of learning a score, the model learns a velocity field.",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion/flow-matching.html#notes",
+    "href": "diffusion/flow-matching.html#notes",
+    "title": "6  Flow Matching",
+    "section": "6.3 Notes",
+    "text": "6.3 Notes\n\nProbability paths\nConditional flow matching\nRelation to diffusion models",
+    "crumbs": [
+      "Diffusion Models",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
     ]
   }
 ]

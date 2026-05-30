@@ -1,0 +1,15 @@
+# Score Matching
+
+## Motivation
+
+Score matching learns the score function of a probability distribution.
+
+## Key idea
+
+Instead of modeling the density directly, we model its gradient with respect to the data.
+
+## Notes
+
+- Score function
+- Denoising score matching
+- Connection to diffusion models

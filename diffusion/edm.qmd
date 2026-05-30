@@ -1,0 +1,12 @@
+# EDM
+
+## Motivation
+
+EDM provides a clean design space for diffusion model sampling and training.
+
+## Key ideas
+
+- Noise parameterization
+- Preconditioning
+- Sampling schedule
+- Solver choice

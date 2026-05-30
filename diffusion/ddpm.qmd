@@ -1,0 +1,13 @@
+# DDPM
+
+## Motivation
+
+Denoising Diffusion Probabilistic Models generate samples by reversing a gradual noising process.
+
+## Forward process
+
+The forward process gradually adds Gaussian noise to data.
+
+## Reverse process
+
+The learned model removes noise step by step.

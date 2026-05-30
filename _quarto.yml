@@ -8,10 +8,12 @@ book:
   chapters:
     - index.qmd
     - foundations.qmd
-    - diffusion.qmd
-    - flows.qmd
-    # - inverse-problems.qmd
-    # - references.qmd
+    - part: "Diffusion Models"
+      chapters:
+        - diffusion/score-matching.qmd
+        - diffusion/ddpm.qmd
+        - diffusion/edm.qmd
+        - diffusion/flow-matching.qmd
 
 bibliography: references.bib
 
