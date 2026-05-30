@@ -1,0 +1,7 @@
+# Preface
+
+These are my notes on probabilistic generative modeling.
+
+The goal is to organize ideas around diffusion models, normalizing flows, inverse problems, and applications in imaging, audio, and neuroscience.
+
+This is not meant to be a finished textbook yet. It is a living set of research notes.

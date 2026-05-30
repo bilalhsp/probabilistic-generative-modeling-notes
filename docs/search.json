@@ -1,0 +1,42 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Probabilistic Generative Modeling Notes",
+    "section": "",
+    "text": "1 Preface\nThese are my notes on probabilistic generative modeling.\nThe goal is to organize ideas around diffusion models, normalizing flows, inverse problems, and applications in imaging, audio, and neuroscience.\nThis is not meant to be a finished textbook yet. It is a living set of research notes.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion.html",
+    "href": "diffusion.html",
+    "title": "3  Diffusion Models",
+    "section": "",
+    "text": "3.1 Core questions\nDiffusion models define a gradual noising process and learn how to reverse it.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion.html#core-questions",
+    "href": "diffusion.html#core-questions",
+    "title": "3  Diffusion Models",
+    "section": "",
+    "text": "What distribution are we modeling?\nWhat is the role of the score function?\nHow do SDE and ODE formulations differ?\nHow do diffusion models solve inverse problems?",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+    ]
+  },
+  {
+    "objectID": "diffusion.html#papers-to-connect",
+    "href": "diffusion.html#papers-to-connect",
+    "title": "3  Diffusion Models",
+    "section": "3.2 Papers to connect",
+    "text": "3.2 Papers to connect\n\nDDPM\nScore-based generative modeling\nEDM\nDAPS\nDiffPIR\nRePS",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Diffusion Models</span>"
+    ]
+  }
+]

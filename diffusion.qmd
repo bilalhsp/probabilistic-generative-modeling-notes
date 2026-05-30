@@ -1,0 +1,19 @@
+# Diffusion Models
+
+Diffusion models define a gradual noising process and learn how to reverse it.
+
+## Core questions
+
+- What distribution are we modeling?
+- What is the role of the score function?
+- How do SDE and ODE formulations differ?
+- How do diffusion models solve inverse problems?
+
+## Papers to connect
+
+- DDPM
+- Score-based generative modeling
+- EDM
+- DAPS
+- DiffPIR
+- RePS
