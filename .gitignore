@@ -1,2 +1,9 @@
 /.quarto/
 **/*.quarto_ipynb
+
+*.log
+*.aux
+*.out
+*.toc
+*.tex
+.quarto/
