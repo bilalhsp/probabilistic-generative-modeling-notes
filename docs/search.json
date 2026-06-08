@@ -10,124 +10,80 @@
     ]
   },
   {
-    "objectID": "diffusion/score-matching.html",
-    "href": "diffusion/score-matching.html",
-    "title": "3  Score Matching",
+    "objectID": "background/basics.html",
+    "href": "background/basics.html",
+    "title": "2  Basics",
     "section": "",
-    "text": "3.1 Motivation\nScore matching learns the score function of a probability distribution.",
+    "text": "2.1 Change of Variables\nIn probability theory, when a random variable is transformed by a function its density changes and we can compute the new density using the change-of-variables formula. Let’s consider a simple example to illustrate this concept. Suppose we have a random variable \\(X\\) with density \\(p_X(x)\\), and we define a new random variable \\(Y\\) as a scaled version of \\(X\\):\n\\[\nY = g(X) = sX,\n\\] where \\(X,Y \\in \\mathbb{R}^d\\) and \\(s \\in \\mathbb{R}\\).\nUsing the change-of-variables formula, we can write the density of \\(Y\\) in terms of the density of \\(X\\) as follows: \\[\np_Y(y)\n=\np_X \\left(g^{-1}(y)\\right)\n\\left|\n\\det \\frac{\\partial g^{-1}(y)}{\\partial y}\n\\right|.\n\\tag{2.1}\\]\nFor the specific transformation \\(Y = sX\\), the inverse function is given by \\[\ng^{-1}(y) = \\frac{y}{s},\n\\] and the Jacobian of the inverse transformation is \\[\n\\left|\\frac{\\partial g^{-1}(y)}{\\partial y}\\right|\n=\n\\left|\\frac{1}{s} I\\right| = |s|^{-d}.\n\\]\nHence, \\[\np_Y(y)\n=\n|s|^{-d}\np_X\\!\\left(\\frac{y}{s}\\right).\n\\]",
     "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
+      "Background",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basics</span>"
     ]
   },
   {
-    "objectID": "diffusion/score-matching.html#key-idea",
-    "href": "diffusion/score-matching.html#key-idea",
-    "title": "3  Score Matching",
-    "section": "3.2 Key idea",
-    "text": "3.2 Key idea\nInstead of modeling the density directly, we model its gradient with respect to the data.",
+    "objectID": "background/basics.html#change-of-variables",
+    "href": "background/basics.html#change-of-variables",
+    "title": "2  Basics",
+    "section": "",
+    "text": "2.1.1 Gaussian Example\nSuppose \\(X \\sim p_X(x)\\) is a Gaussian random variable with mean \\(\\mu\\) and covariance \\(\\sigma^2 I\\), i.e., \\(p_X(x) = \\mathcal{N}(x;\\mu,\\sigma^2 I)\\) and we define \\(Y = sX\\) where \\(s\\) is a positive scalar. Using Equation 2.1 We can compute the density of \\(Y\\) using the change-of-variables formula as follows: \\[\np_Y(y)\n=\ns^{-d}\np_X\\left(\\frac{y}{s}\\right)=\ns^{-d}\n\\mathcal{N}\\left(\\frac{y}{s};\\mu,\\sigma^2 I\\right).\n\\]\nExpanding this expression, \\[\np_Y(y)\n=\ns^{-d}\n\\frac{1}{(2\\pi)^{d/2}\\sigma^d}\n\\exp\\left(\n-\\frac{\\left\\|\\frac{y}{s}-\\mu\\right\\|^2}{2\\sigma^2}\n\\right).\n\\]\nSince \\[\n\\left\\|\\frac{y}{s}-\\mu\\right\\|^2\n=\n\\frac{\\|y-s\\mu\\|^2}{s^2},\n\\] we get \\[\np_Y(y)\n=\n\\frac{1}{(2\\pi)^{d/2}(s\\sigma)^d}\n\\exp\\left(\n-\\frac{\\|y-s\\mu\\|^2}{2s^2\\sigma^2}\n\\right).\n\\]\nTherefore, \\[\nY \\sim \\mathcal{N}(s\\mu,s^2\\sigma^2 I).\n\\]",
     "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
-    ]
-  },
-  {
-    "objectID": "diffusion/score-matching.html#notes",
-    "href": "diffusion/score-matching.html#notes",
-    "title": "3  Score Matching",
-    "section": "3.3 Notes",
-    "text": "3.3 Notes\n\nScore function\nDenoising score matching\nConnection to diffusion models",
-    "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Score Matching</span>"
+      "Background",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Basics</span>"
     ]
   },
   {
     "objectID": "diffusion/ddpm.html",
     "href": "diffusion/ddpm.html",
-    "title": "4  DDPM",
+    "title": "3  DDPM",
     "section": "",
-    "text": "4.1 Motivation\nDenoising Diffusion Probabilistic Models generate samples by reversing a gradual noising process.",
+    "text": "3.1 Motivation\nDenoising Diffusion Probabilistic Models generate samples by reversing a gradual noising process.\nThis is following Ho et al. (2020). This iss not working right now,,,,,testtt\nThis shoudl be better…",
     "crumbs": [
       "Diffusion Models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>DDPM</span>"
     ]
   },
   {
-    "objectID": "diffusion/ddpm.html#forward-process",
-    "href": "diffusion/ddpm.html#forward-process",
-    "title": "4  DDPM",
-    "section": "4.2 Forward process",
-    "text": "4.2 Forward process\nThe forward process gradually adds Gaussian noise to data.",
+    "objectID": "diffusion/ddpm.html#sec-forward",
+    "href": "diffusion/ddpm.html#sec-forward",
+    "title": "3  DDPM",
+    "section": "3.2 Forward Process",
+    "text": "3.2 Forward Process\n\\[q(x_t|x_{t-1})\n=\n\\mathcal N(\n\\sqrt{1-\\beta_t}x_{t-1},\n\\beta_t I\n)\n\\tag{3.1}\\]\n…",
     "crumbs": [
       "Diffusion Models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>DDPM</span>"
     ]
   },
   {
-    "objectID": "diffusion/ddpm.html#reverse-process",
-    "href": "diffusion/ddpm.html#reverse-process",
-    "title": "4  DDPM",
-    "section": "4.3 Reverse process",
-    "text": "4.3 Reverse process\nThe learned model removes noise step by step.",
+    "objectID": "diffusion/ddpm.html#vp-sde",
+    "href": "diffusion/ddpm.html#vp-sde",
+    "title": "3  DDPM",
+    "section": "3.3 VP-SDE",
+    "text": "3.3 VP-SDE\nConsider the VP-SDE\n\\[\nd x_t\n=\n-\\frac{1}{2}\\beta(t)x_t\\,dt\n+\n\\sqrt{\\beta(t)}\\,dW_t.\n\\]\nIts perturbation kernel is\n\\[\np(x_t \\mid x_0)\n=\n\\mathcal{N}\n\\!\\left(\nx_t;\ns(t)x_0,\n\\lambda(t)^2 I\n\\right),\n\\]\nwhere\n\\[\ns(t)\n=\n\\exp\\!\\left(\n-\\frac{1}{2}\n\\int_0^t \\beta(\\tau)\\,d\\tau\n\\right),\n\\]\nand\n\\[\n\\lambda(t)\n=\n\\sqrt{\n1-\n\\exp\\!\\left(\n-\\int_0^t \\beta(\\tau)\\,d\\tau\n\\right)\n}.\n\\]\n…\n\n\n\n\n\nHo, Jonathan, Ajay Jain, and Pieter Abbeel. 2020. Denoising\nDiffusion Probabilistic\nModels. arXiv. https://doi.org/10.48550/arXiv.2006.11239.\n\n\nKarras, Tero, Miika Aittala, Timo Aila, and Samuli Laine. 2022.\nElucidating the Design Space of\nDiffusion-Based Generative\nModels. arXiv. https://doi.org/10.48550/arXiv.2206.00364.",
     "crumbs": [
       "Diffusion Models",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>DDPM</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>DDPM</span>"
     ]
   },
   {
     "objectID": "diffusion/edm.html",
     "href": "diffusion/edm.html",
-    "title": "5  EDM",
+    "title": "4  EDM",
     "section": "",
-    "text": "5.1 Motivation\nEDM provides a clean design space for diffusion model sampling and training.",
+    "text": "4.1 Probability Flow ODE\nDiffusion models involve several design choices. The first is the forward noising process, which defines the perturbation kernel \\(p(x_t \\mid x_0)\\) and includes formulations such as DDPM, VP-SDE, and VE-SDE. The second is the model parameterization, where the neural network may predict the score, noise \\(\\epsilon\\), or clean data \\(x_0\\). The third is the sampling algorithm used to generate samples from the learned distribution, such as ancestral sampling, DDIM, or probability flow ODE solvers.\nKarras et al. (2022) argued that we can use the same probability flow ODE for diffusion models trained using different design choices. Specifically, they claimed that the VE-SDE, corresponding to the perturbation kernel \\(p(y_t \\mid y_0) = \\mathcal{N}(y_t; y_0, \\sigma^2(t)I)\\) with \\(\\sigma(t) = t\\), where \\(y_0 \\in \\mathbb{R}^d\\) represents samples from the data distribution \\(p_\\text{data}\\) and \\(y_t \\in \\mathbb{R}^d\\) is the corresponding noise-perturbed sample, induces probability paths that are less curved. This results in reduced discretization error and enables faster and more accurate sampling.\nThe reverse probability flow ODE corresponding to the perturbation kernel above is given by\n\\[\n\\mathrm{d}y = -\\dot{\\sigma}(t)\\sigma(t)\\nabla_y \\log p(y;\\sigma(t))\\mathrm{d}t.\n\\]\nUsing the relationship given by Tweedie’s formula,\n\\[\n\\nabla_y \\log p(y;\\sigma(t))\n=\n\\frac{D(y;\\sigma(t))-y}{\\sigma(t)^2},\n\\]\nthe probability flow ODE can be written in terms of the denoised sample \\(D(y;\\sigma)\\) as\n\\[\n\\mathrm{d}y\n=\n-\\dot{\\sigma}(t)\\sigma(t)\n\\frac{D(y;\\sigma(t))-y}{\\sigma(t)^2}\n\\mathrm{d}t.\n\\]",
     "crumbs": [
       "Diffusion Models",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>EDM</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EDM</span>"
     ]
   },
   {
-    "objectID": "diffusion/edm.html#key-ideas",
-    "href": "diffusion/edm.html#key-ideas",
-    "title": "5  EDM",
-    "section": "5.2 Key ideas",
-    "text": "5.2 Key ideas\n\nNoise parameterization\nPreconditioning\nSampling schedule\nSolver choice",
+    "objectID": "diffusion/edm.html#sampling-a-vp-sde-model-with-the-ve-sde-ode",
+    "href": "diffusion/edm.html#sampling-a-vp-sde-model-with-the-ve-sde-ode",
+    "title": "4  EDM",
+    "section": "4.2 Sampling a VP-SDE Model with the VE-SDE ODE",
+    "text": "4.2 Sampling a VP-SDE Model with the VE-SDE ODE\nSuppose the diffusion model was trained using the VP-SDE process defined by the perturbation kernel\n\\[\np(x_t \\mid x_0) = \\mathcal{N}(x_t;s(t)x_0,\\lambda(t)^2I),\n\\]\nwhere \\(x_0 \\in \\mathbb{R}^d\\) is a sample from the data distribution \\(p_\\text{data}\\).\nTo relate the VP-SDE formulation to the VE-SDE probability flow ODE, define\n\\[\ny_t = \\frac{x_t}{s(t)}.\n\\]\nThen \\(y_t\\) follows the perturbation kernel\n\\[\np(y_t \\mid y_0) = \\mathcal{N}(y_t;y_0,\\sigma^2(t)I),\n\\]\nwith \\(x_0=y_0\\), meaning that both processes are initialized from the same data sample.\n\n4.2.1 Relationship between \\(p_{x_t}(x)\\) and \\(p_{y_t}(y)\\)\nThe marginal density of \\(x_t\\) is\n\\[\np_{x_t}(x) = \\int p(x_t \\mid x_0)p_{\\mathrm{data}}(x_0)dx_0.\n\\]\nSubstituting the VP-SDE perturbation kernel,\n\\[\np_{x_t}(x) = \\int p_{\\mathrm{data}}(x_0)\\mathcal{N}(x_t;s(t)x_0,\\lambda^2(t)I)dx_0.\n\\]\nUsing\n\\[\n\\mathcal{N}(x_t;s(t)x_0,\\lambda^2(t)I)\n=\ns(t)^{-d}\\mathcal{N}\\left(\\frac{x_t}{s(t)};x_0,\\frac{\\lambda^2(t)}{s^2(t)}I\\right),\n\\]\nand defining\n\\[\n\\sigma(t)=\\frac{\\lambda(t)}{s(t)},\n\\qquad\ny_t=\\frac{x_t}{s(t)},\n\\]\nwe obtain\n\\[\np_{x_t}(x)\n=\ns(t)^{-d}\\int p_{\\mathrm{data}}(x_0)\\mathcal{N}(y_t;x_0,\\sigma^2(t)I)dx_0\n=\ns(t)^{-d}p_{y_t}(y).\n\\]\n\n\n4.2.2 Relationship between \\(\\nabla_{x_t}\\log p_{x_t}(x)\\) and \\(\\nabla_{y_t}\\log p_{y_t}(y)\\)\nUsing\n\\[\np_{x_t}(x)=s(t)^{-d}p_{y_t}(y),\n\\]\nwe have\n\\[\n\\nabla_{x_t}\\log p_{x_t}(x)\n=\n\\nabla_{x_t}\\log\\left(s(t)^{-d}p_{y_t}(y)\\right)\n=\n\\nabla_{x_t}\\log p_{y_t}(y).\n\\]\nSince \\(y_t=x_t/s(t)\\),\n\\[\n\\nabla_{x_t}\\log p_{y_t}(y)\n=\n\\frac{1}{s(t)}\n\\nabla_{y_t}\\log p_{y_t}(y).\n\\]\nTherefore,\n\\[\n\\nabla_{x_t}\\log p_{x_t}(x)\n=\n\\frac{1}{s(t)}\n\\nabla_{y_t}\\log p_{y_t}(y),\n\\]\nor equivalently,\n\\[\n\\nabla_{y_t}\\log p_{y_t}(y)\n=\ns(t)\\nabla_{x_t}\\log p_{x_t}(x).\n\\] ### Denoiser Expression for \\(\\epsilon\\) Parameterization\nSuppose the model is trained for \\(\\epsilon\\) prediction, where the network is conditioned on the discrete time index and is denoted by \\(\\epsilon_\\theta(x_t,(M-1)t)\\).\nThe score of \\(p_{x_t}\\) is given by\n\\[\n\\nabla_{x_t}\\log p_{x_t}(x)\n=\n-\\frac{1}{\\lambda(t)}\n\\epsilon_\\theta(x_t,(M-1)t).\n\\]\nUsing the relationship derived above,\n\\[\n\\nabla_{y_t}\\log p_{y_t}(y)\n=\n-\\frac{s(t)}{\\lambda(t)}\n\\epsilon_\\theta(x_t,(M-1)t).\n\\]\nSince \\(\\sigma(t)=\\lambda(t)/s(t)\\),\n\\[\n\\nabla_{y_t}\\log p_{y_t}(y)\n=\n-\\frac{1}{\\sigma(t)}\n\\epsilon_\\theta(x_t,(M-1)t).\n\\]\nUsing Tweedie’s formula,\n\\[\nD(y;\\sigma)\n=\ny-\\sigma\\epsilon_\\theta(x_t,(M-1)t).\n\\]\nSubstituting \\(x_t=s(t)y\\) gives\n\\[\nD(y;\\sigma)\n=\ny-\\sigma\\epsilon_\\theta(s(t)y,(M-1)t).\n\\]\n\n\n\n\n\nKarras, Tero, Miika Aittala, Timo Aila, and Samuli Laine. 2022. Elucidating the Design Space of Diffusion-Based Generative Models. arXiv. https://doi.org/10.48550/arXiv.2206.00364.",
     "crumbs": [
       "Diffusion Models",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>EDM</span>"
-    ]
-  },
-  {
-    "objectID": "diffusion/flow-matching.html",
-    "href": "diffusion/flow-matching.html",
-    "title": "6  Flow Matching",
-    "section": "",
-    "text": "6.1 Motivation\nFlow matching learns a continuous-time vector field that transports noise to data.",
-    "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
-    ]
-  },
-  {
-    "objectID": "diffusion/flow-matching.html#key-idea",
-    "href": "diffusion/flow-matching.html#key-idea",
-    "title": "6  Flow Matching",
-    "section": "6.2 Key idea",
-    "text": "6.2 Key idea\nInstead of learning a score, the model learns a velocity field.",
-    "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
-    ]
-  },
-  {
-    "objectID": "diffusion/flow-matching.html#notes",
-    "href": "diffusion/flow-matching.html#notes",
-    "title": "6  Flow Matching",
-    "section": "6.3 Notes",
-    "text": "6.3 Notes\n\nProbability paths\nConditional flow matching\nRelation to diffusion models",
-    "crumbs": [
-      "Diffusion Models",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Flow Matching</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>EDM</span>"
     ]
   }
 ]

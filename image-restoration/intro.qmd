@@ -1,0 +1,12 @@
+# Image Restoration Problems
+
+- types of problems:
+    - inpainting
+    - super-resolution
+    - deblurring
+- how to solve them with diffusion models?
+    - plug and play
+    - linear problems
+    - non-linear problems
+- does it reflect live change?
+- how to solve them with flow matching?...

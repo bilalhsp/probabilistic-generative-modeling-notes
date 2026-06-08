@@ -1,4 +1,4 @@
-# Diffusion Models
+# Diffusion Summary
 
 Diffusion models define a gradual noising process and learn how to reverse it.
 
@@ -17,3 +17,5 @@ Diffusion models define a gradual noising process and learn how to reverse it.
 - DAPS
 - DiffPIR
 - RePS
+
+As shown in @sec-forward, forward process is given by the equation: @eq-forward.

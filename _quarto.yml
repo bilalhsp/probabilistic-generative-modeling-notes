@@ -7,15 +7,28 @@ book:
   author: "Bilal Ahmed"
   chapters:
     - index.qmd
-    - foundations.qmd
+    - part: "Background"
+      chapters:
+        # - background/notation.qmd
+        - background/basics.qmd
+        # - background/score-matching.qmd
     - part: "Diffusion Models"
       chapters:
-        - diffusion/score-matching.qmd
+        # - diffusion/score-matching.qmd
         - diffusion/ddpm.qmd
         - diffusion/edm.qmd
-        - diffusion/flow-matching.qmd
+        # - diffusion/summary.qmd
+    # - part: "Flow Matching"
+    #   chapters:
+    #     - flows/flow-matching.qmd
+    # - part: "Image Restoration"
+    #   chapters:
+    #     - image-restoration/intro.qmd
+    - references.qmd
 
-bibliography: references.bib
+bibliography: 
+  - references.bib
+  - diffusion.bib
 
 format:
   html:

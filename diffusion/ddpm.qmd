@@ -4,10 +4,76 @@
 
 Denoising Diffusion Probabilistic Models generate samples by reversing a gradual noising process.
 
-## Forward process
+This is following @ho_denoising_2020.
+This iss not working right now,,,,,testtt
 
-The forward process gradually adds Gaussian noise to data.
 
-## Reverse process
+This shoudl be better...
 
-The learned model removes noise step by step.
+## Forward Process {#sec-forward}
+
+$$q(x_t|x_{t-1})
+=
+\mathcal N(
+\sqrt{1-\beta_t}x_{t-1},
+\beta_t I
+)
+$${#eq-forward}
+
+...
+
+
+## VP-SDE
+
+Consider the VP-SDE
+
+$$
+d x_t
+=
+-\frac{1}{2}\beta(t)x_t\,dt
++
+\sqrt{\beta(t)}\,dW_t.
+$$
+
+Its perturbation kernel is
+
+$$
+p(x_t \mid x_0)
+=
+\mathcal{N}
+\!\left(
+x_t;
+s(t)x_0,
+\lambda(t)^2 I
+\right),
+$$
+
+where
+
+$$
+s(t)
+=
+\exp\!\left(
+-\frac{1}{2}
+\int_0^t \beta(\tau)\,d\tau
+\right),
+$$
+
+and
+
+$$
+\lambda(t)
+=
+\sqrt{
+1-
+\exp\!\left(
+-\int_0^t \beta(\tau)\,d\tau
+\right)
+}.
+$$
+
+...
+
+<!-- ## References
+::: {#refs}
+::: -->

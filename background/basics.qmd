@@ -1,0 +1,84 @@
+# Basics
+
+## Change of Variables
+
+In probability theory, when a random variable is transformed by a function its density changes and we can compute the new density using the change-of-variables formula. Let's consider a simple example to illustrate this concept. Suppose we have a random variable $X$ with density $p_X(x)$, and we define a new random variable $Y$ as a scaled version of $X$:   
+$$
+Y = g(X) = sX,
+$$
+where $X,Y \in \mathbb{R}^d$ and $s \in \mathbb{R}$.
+
+Using the change-of-variables formula, we can write the density of $Y$ in terms of the density of $X$ as follows:
+$$
+p_Y(y)
+=
+p_X \left(g^{-1}(y)\right)
+\left|
+\det \frac{\partial g^{-1}(y)}{\partial y}
+\right|.
+$${#eq-change-of-variables}
+
+For the specific transformation $Y = sX$, the inverse function is given by
+$$
+g^{-1}(y) = \frac{y}{s},
+$$
+and the Jacobian of the inverse transformation is
+$$
+\left|\frac{\partial g^{-1}(y)}{\partial y}\right|
+=
+\left|\frac{1}{s} I\right| = |s|^{-d}.
+$$
+
+
+Hence,
+$$
+p_Y(y)
+=
+|s|^{-d}
+p_X\!\left(\frac{y}{s}\right).
+$$
+
+
+### Gaussian Example
+
+Suppose $X \sim p_X(x)$ is a Gaussian random variable with mean $\mu$ and covariance $\sigma^2 I$, i.e., $p_X(x) = \mathcal{N}(x;\mu,\sigma^2 I)$ and we define $Y = sX$ where $s$ is a positive scalar. Using @eq-change-of-variables We can compute the density of $Y$ using the change-of-variables formula as follows: 
+$$
+p_Y(y)
+=
+s^{-d}
+p_X\left(\frac{y}{s}\right)=
+s^{-d}
+\mathcal{N}\left(\frac{y}{s};\mu,\sigma^2 I\right).
+$$
+
+Expanding this expression,
+$$
+p_Y(y)
+=
+s^{-d}
+\frac{1}{(2\pi)^{d/2}\sigma^d}
+\exp\left(
+-\frac{\left\|\frac{y}{s}-\mu\right\|^2}{2\sigma^2}
+\right).
+$$
+
+Since
+$$
+\left\|\frac{y}{s}-\mu\right\|^2
+=
+\frac{\|y-s\mu\|^2}{s^2},
+$$
+we get
+$$
+p_Y(y)
+=
+\frac{1}{(2\pi)^{d/2}(s\sigma)^d}
+\exp\left(
+-\frac{\|y-s\mu\|^2}{2s^2\sigma^2}
+\right).
+$$
+
+Therefore,
+$$
+Y \sim \mathcal{N}(s\mu,s^2\sigma^2 I).
+$$
