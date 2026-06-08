@@ -225,6 +225,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#relationship-between-p_x_tx-and-p_y_ty" id="toc-relationship-between-p_x_tx-and-p_y_ty" class="nav-link" data-scroll-target="#relationship-between-p_x_tx-and-p_y_ty"><span class="header-section-number">4.2.1</span> Relationship between <span class="math inline">\(p_{x_t}(x)\)</span> and <span class="math inline">\(p_{y_t}(y)\)</span></a></li>
   <li><a href="#relationship-between-nabla_x_tlog-p_x_tx-and-nabla_y_tlog-p_y_ty" id="toc-relationship-between-nabla_x_tlog-p_x_tx-and-nabla_y_tlog-p_y_ty" class="nav-link" data-scroll-target="#relationship-between-nabla_x_tlog-p_x_tx-and-nabla_y_tlog-p_y_ty"><span class="header-section-number">4.2.2</span> Relationship between <span class="math inline">\(\nabla_{x_t}\log p_{x_t}(x)\)</span> and <span class="math inline">\(\nabla_{y_t}\log p_{y_t}(y)\)</span></a></li>
+  <li><a href="#denoiser-expression-for-epsilon-parameterization" id="toc-denoiser-expression-for-epsilon-parameterization" class="nav-link" data-scroll-target="#denoiser-expression-for-epsilon-parameterization"><span class="header-section-number">4.2.3</span> Denoiser Expression for <span class="math inline">\(\epsilon\)</span> Parameterization</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -354,7 +355,10 @@ p_{x_t}(x)=s(t)^{-d}p_{y_t}(y),
 \nabla_{y_t}\log p_{y_t}(y)
 =
 s(t)\nabla_{x_t}\log p_{x_t}(x).
-\]</span> ### Denoiser Expression for <span class="math inline">\(\epsilon\)</span> Parameterization</p>
+\]</span></p>
+</section>
+<section id="denoiser-expression-for-epsilon-parameterization" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="denoiser-expression-for-epsilon-parameterization"><span class="header-section-number">4.2.3</span> Denoiser Expression for <span class="math inline">\(\epsilon\)</span> Parameterization</h3>
 <p>Suppose the model is trained for <span class="math inline">\(\epsilon\)</span> prediction, where the network is conditioned on the discrete time index and is denoted by <span class="math inline">\(\epsilon_\theta(x_t,(M-1)t)\)</span>.</p>
 <p>The score of <span class="math inline">\(p_{x_t}\)</span> is given by</p>
 <p><span class="math display">\[
